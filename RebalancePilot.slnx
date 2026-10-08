@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RebalancePilot.Api/RebalancePilot.Api.csproj" />
+  <Project Path="RebalancePilot.Tests/RebalancePilot.Tests.csproj" />
+</Solution>

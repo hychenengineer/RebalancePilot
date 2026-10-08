@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="TamaracCoPilot.Api/TamaracCoPilot.Api.csproj" />
-  <Project Path="TamaracCoPilot.Tests/TamaracCoPilot.Tests.csproj" />
-</Solution>

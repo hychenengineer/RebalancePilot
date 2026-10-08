@@ -77,12 +77,12 @@ This demo proves that conversational AI can handle natural language instructions
 
 2. **Run the Automated Tests:**
    ```bash
-   dotnet test TamaracCoPilot.Tests/TamaracCoPilot.Tests.csproj
+   dotnet test RebalancePilot.Tests/RebalancePilot.Tests.csproj
    ```
 
 3. **Start the Demo Web Application:**
    ```bash
-   dotnet run --project TamaracCoPilot.Api/TamaracCoPilot.Api.csproj --urls "http://localhost:5000"
+   dotnet run --project RebalancePilot.Api/RebalancePilot.Api.csproj --urls "http://localhost:5000"
    ```
 
 4. **Open the Demo UI:**
