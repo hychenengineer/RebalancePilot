@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envestnet | Tamarac Advisor Platform</title>
+  <link rel="stylesheet" href="styles.css?v=7">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-logo">ENVESTNET <span style="font-weight: 300;">TAMARAC</span></div>
+      <div class="brand-badge">Adaptive WealthTech</div>
+    </div>
+    <div class="nav-actions">
+      <div class="health-status">
+        <span class="status-dot"></span>
+        <span id="healthLabel">Engine: Healthy</span>
+      </div>
+      <div>
+        <label for="clientSelect" style="font-size: 0.8rem; color: #94a3b8; margin-right: 6px;">Client:</label>
+        <select id="clientSelect" class="client-select">
+          <option value="1">Sarah Jenkins (#ENV-100942)</option>
+          <option value="2">Robert Miller (#ENV-204118)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Grid Dashboard -->
+  <main class="main-container">
+    
+    <!-- Left Column (Core Platform) -->
+    <div class="left-panel">
+      
+      <!-- Top Overview Row -->
+      <div class="top-cards-grid">
+        
+        <!-- Client Profile Card -->
+        <div class="card">
+          <div class="client-info-header">
+            <div class="client-avatar" id="clientAvatar">SJ</div>
+            <div>
+              <div class="client-name" id="clientName">Sarah Jenkins</div>
+              <div class="client-acct" id="accountNumber">#ENV-100942 • Schwab</div>
+            </div>
+          </div>
+          <div class="aum-stat">
+            <div class="aum-label">Total AUM</div>
+            <div class="aum-value" id="totalAum">$100,000</div>
+          </div>
+          <div class="target-model-pill" id="targetModel">Model: 60/40 Balanced</div>
+        </div>
+
+        <!-- Asset Allocation Drift Visualizer -->
+        <div class="card drift-card">
+          <div class="section-title">
+            <span>Asset Allocation Drift & Tolerance</span>
+            <span id="driftToleranceBadge" class="alert-tag">Drift: +15.0% Over Limit</span>
+          </div>
+
+          <div class="visual-comparison-grid">
+            <!-- Current State -->
+            <div class="comparison-box">
+              <div class="comparison-title">
+                <span>Before Rebalance</span>
+                <span id="currentStatusTag" class="alert-tag">Action Needed</span>
+              </div>
+              <div class="allocation-bar-container">
+                <div class="allocation-bar">
+                  <div id="barCurrentEq" class="bar-equity" style="width: 75%;">75% Stocks</div>
+                  <div id="barCurrentFi" class="bar-bonds" style="width: 25%;">25% Bonds</div>
+                </div>
+              </div>
+              <div class="allocation-legend">
+                <span id="legendCurrentEq">Stocks: $75,000 (75%)</span>
+                <span id="legendCurrentFi">Bonds: $25,000 (25%)</span>
+              </div>
+            </div>
+
+            <!-- Projected State -->
+            <div class="comparison-box">
+              <div class="comparison-title">
+                <span>After Rebalance (Projected)</span>
+                <span class="success-tag">Model Compliant</span>
+              </div>
+              <div class="allocation-bar-container">
+                <div class="allocation-bar">
+                  <div id="barTargetEq" class="bar-equity" style="width: 60%;">60% Stocks</div>
+                  <div id="barTargetFi" class="bar-bonds" style="width: 40%;">40% Bonds</div>
+                </div>
+              </div>
+              <div class="allocation-legend">
+                <span id="legendTargetEq">Stocks: 60.0% Target</span>
+                <span id="legendTargetFi">Bonds: 40.0% Target</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Portfolio Holdings Table Card -->
+      <div class="card">
+        <div class="section-title">
+          <span>Current Portfolio Holdings</span>
+          <span id="holdingsCount" style="font-size: 0.8rem; color: #64748b; font-weight: normal;">3 Positions • 100% Invested</span>
+        </div>
+        <div class="table-container">
+          <table id="holdingsTable">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Security Name</th>
+                <th>Asset Class</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Market Value</th>
+                <th>Weight</th>
+                <th>Unrealized Gain/Loss</th>
+              </tr>
+            </thead>
+            <tbody id="holdingsBody">
+              <tr>
+                <td colspan="8" style="text-align: center; color: #94a3b8; padding: 15px;">Loading portfolio holdings...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Rebalance & Tax Optimization Assistant -->
+      <div class="ai-copilot-container">
+        <div class="copilot-header" style="justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span>✨ Tamarac Rebalance Assistant</span>
+            <span style="font-size: 0.75rem; font-weight: normal; color: #93c5fd;">Tax-Smart Optimization Engine</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <select id="llmProviderSelect" class="client-select" style="padding: 4px 8px; font-size: 0.75rem; background: rgba(0,0,0,0.3); border-color: #60a5fa;">
+              <option value="Offline">Offline / Deterministic (Fast & Free)</option>
+              <option value="Groq" selected>Groq (groq.com LPU)</option>
+              <option value="Google">Google (Gemini)</option>
+              <option value="OpenAI">OpenAI</option>
+              <option value="Grok">Grok (xAI)</option>
+            </select>
+            <select id="llmModelSelect" class="client-select" style="padding: 4px 8px; font-size: 0.75rem; background: rgba(0,0,0,0.3); border-color: #60a5fa; min-width: 175px;">
+              <!-- Populated dynamically via app.js -->
+            </select>
+            <input type="text" id="llmCustomModelInput" placeholder="Enter custom model..." 
+                   style="display: none; padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; border: 1px solid #60a5fa; background: rgba(0,0,0,0.3); color: white; width: 140px;" />
+            <input type="password" id="llmApiKey" placeholder="API Key (gsk_...)" 
+                   style="padding: 4px 8px; font-size: 0.75rem; border-radius: 4px; border: 1px solid #475569; background: rgba(0,0,0,0.2); color: white; width: 175px;" />
+          </div>
+        </div>
+        <div class="copilot-input-group">
+          <input type="text" id="copilotInput" class="copilot-input" 
+                 value="Rebalance portfolio, minimize capital gains taxes (budget $2,000)">
+          <button id="btnRunCoPilot" class="btn-primary">Generate Proposal</button>
+        </div>
+        <div class="prompt-chips">
+          <span class="chip" onclick="setPrompt('Rebalance portfolio, minimize capital gains taxes (budget $2,000)')">🎯 Balanced ($2k Tax Budget)</span>
+          <span class="chip" onclick="setPrompt('Trim tech equity drift and cap realized capital gains at $1,000')">🛡️ Defensive ($1k Tax Cap)</span>
+          <span class="chip" onclick="setPrompt('Fully realign to 60/40 model targets regardless of tax')">⚡ Full Model Realignment</span>
+        </div>
+      </div>
+
+      <!-- Trade Proposal & Orders -->
+      <div class="card">
+        <div class="section-title">
+          <span>Generated Trade Proposal</span>
+          <span id="proposalStatus" style="font-size: 0.8rem; color: #64748b; font-weight: normal;">Status: Awaiting Advisor Sign-off</span>
+        </div>
+
+        <!-- Post-Trade Allocation Impact Banner -->
+        <div id="allocationImpactBanner" class="allocation-impact-banner" style="display: none;">
+          <div class="impact-header">
+            <span class="impact-title-text">📊 Post-Trade Allocation Impact (Portfolio Realignment)</span>
+            <span id="targetAchievedBadge" class="success-tag">🎯 60/40 Target Model Achieved</span>
+          </div>
+          <div class="impact-grid">
+            <div class="impact-box">
+              <span class="impact-label">Equities Transition</span>
+              <span class="impact-val" id="impactEquities">75.0% ➔ 60.0% (-$15,000)</span>
+            </div>
+            <div class="impact-box">
+              <span class="impact-label">Fixed Income Transition</span>
+              <span class="impact-val" id="impactBonds">25.0% ➔ 40.0% (+$15,000)</span>
+            </div>
+            <div class="impact-box">
+              <span class="impact-label">Post-Rebalance Result</span>
+              <span class="impact-val impact-val-green" id="impactModelStatus">60.0% Stocks / 40.0% Bonds</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="ordersTable">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Symbol</th>
+                <th>Security Name</th>
+                <th>Shares</th>
+                <th>Est. Price</th>
+                <th>Trade Value</th>
+                <th>Est. Capital Gain</th>
+              </tr>
+            </thead>
+            <tbody id="ordersBody">
+              <tr>
+                <td colspan="7" style="text-align: center; color: #94a3b8; padding: 20px;">
+                  Click "Generate Proposal" to generate proposed rebalancing trades.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Fiduciary Sign-Off Gate -->
+        <div class="fiduciary-footer">
+          <div class="fiduciary-summary" id="fiduciarySummary">
+            Total Trade Volume: <strong>$0.00</strong> • Est. Realized Gains: <strong>$0.00</strong>
+          </div>
+          <button id="btnApprove" class="btn-fiduciary" disabled>
+            <span>🛡️</span> Approve & Execute Trades (Advisor Sign-off)
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column (Client Letter & Event Bus Log) -->
+    <div class="right-panel">
+      
+      <!-- AI Client Review Briefing -->
+      <div class="card email-card">
+        <div class="section-title">
+          <span>Client Review Summary Draft</span>
+          <button id="btnCopyEmail" class="btn-primary" style="padding: 4px 8px; font-size: 0.75rem;">Copy</button>
+        </div>
+        <div class="email-box" id="emailDraft">
+Subject: Portfolio Review — Awaiting proposal generation...
+
+The rebalancing assistant will draft a fiduciary client explanation email here once a rebalance proposal is generated.
+        </div>
+
+        <!-- Real-Time Event Bus Activity Log -->
+        <div style="margin-top: 15px;">
+          <div class="section-title" style="margin-bottom: 6px;">
+            <span>Event Bus & Audit Ledger</span>
+            <span style="font-size: 0.7rem; color: #94a3b8;">MediatR / Kafka stream</span>
+          </div>
+          <div class="event-timeline" id="eventLog">
+            <div class="timeline-entry"><span class="timeline-tag">[System: Ready]</span> Tamarac Engine online. Connected to DB.</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="app.js?v=7"></script>
+</body>
+</html>

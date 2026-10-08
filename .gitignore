@@ -1,0 +1,23 @@
+## .NET Core
+bin/
+obj/
+dist/
+publish/
+*.user
+*.suo
+.vs/
+.vscode/
+
+## SQLite & Local State
+*.db
+*.db-shm
+*.db-wal
+
+## Logs & Temp
+*.log
+logs/
+.system_generated/
+
+credentials.json
+*.key
+*.token
