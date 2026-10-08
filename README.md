@@ -1,4 +1,4 @@
-# RebalancePilot (Demo / Proof of Concept) ??
+# RebalancePilot (Demo / Proof of Concept)
 
 > **Interactive Demo: Autonomous, Tax-Aware Portfolio Rebalancing Co-Pilot**  
 > *A technical reference architecture demonstrating how to translate natural language advisor directives into deterministic, fiduciary-compliant trade proposals.*
@@ -24,32 +24,32 @@ This demo proves that conversational AI can handle natural language instructions
 
 ```
 [ Advisor Input in Demo UI ]
-            ¦  e.g. "Sell 10% on AI, ignore non-energy, cap taxes at $1,500"
+            Â¦  e.g. "Sell 10% on AI, ignore non-energy, cap taxes at $1,500"
             ?
 +--------------------------------------+
-¦ 1. Guardrail & Intent Validation     ¦  Catches prompt injections, gibberish & off-topic inputs
+Â¦ 1. Guardrail & Intent Validation     Â¦  Catches prompt injections, gibberish & off-topic inputs
 +--------------------------------------+
-            ¦
+            Â¦
             ?
 +--------------------------------------+
-¦ 2. Semantic Intent Extractor (LLM)   ¦  Semantic Kernel (Groq / Gemini / OpenAI)
-¦    Structured JSON Contract Output   ¦  Outputs: AdvisorRebalanceIntent
+Â¦ 2. Semantic Intent Extractor (LLM)   Â¦  Semantic Kernel (Groq / Gemini / OpenAI)
+Â¦    Structured JSON Contract Output   Â¦  Outputs: AdvisorRebalanceIntent
 +--------------------------------------+
-            ¦
+            Â¦
             ?
 +--------------------------------------+
-¦ 3. Deterministic Rebalance Engine    ¦  NO AI Math / Zero Hallucination
-¦    (Pure C# Domain Layer)            ¦  • Drift: 75% stocks ? 60% target model
-¦                                      ¦  • Resolves % and $ into exact shares
-¦                                      ¦  • Enforces hard $1,500 capital gains cap
-¦                                      ¦  • Reallocates excess into bonds (BND)
+Â¦ 3. Deterministic Rebalance Engine    Â¦  NO AI Math / Zero Hallucination
+Â¦    (Pure C# Domain Layer)            Â¦  â€¢ Drift: 75% stocks ? 60% target model
+Â¦                                      Â¦  â€¢ Resolves % and $ into exact shares
+Â¦                                      Â¦  â€¢ Enforces hard $1,500 capital gains cap
+Â¦                                      Â¦  â€¢ Reallocates excess into bonds (BND)
 +--------------------------------------+
-            ¦
+            Â¦
             ?
 +--------------------------------------+
-¦ 4. Client Communication Synthesis    ¦  LLM drafts compliance review email for client
+Â¦ 4. Client Communication Synthesis    Â¦  LLM drafts compliance review email for client
 +--------------------------------------+
-            ¦
+            Â¦
             ?
 [ Interactive Demo Dashboard: Review & Execute ]
 ```
