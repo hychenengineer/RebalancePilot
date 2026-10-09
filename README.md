@@ -25,18 +25,18 @@ This demo proves that conversational AI can handle natural language instructions
 ```
 [ Advisor Input in Demo UI ]
             ¦  e.g. "Sell 10% on AI, ignore non-energy, cap taxes at $1,500"
-            ?
+            ¦
 +--------------------------------------+
 ¦ 1. Guardrail & Intent Validation     ¦  Catches prompt injections, gibberish & off-topic inputs
 +--------------------------------------+
             ¦
-            ?
+            ¦
 +--------------------------------------+
 ¦ 2. Semantic Intent Extractor (LLM)   ¦  Semantic Kernel (Groq / Gemini / OpenAI)
 ¦    Structured JSON Contract Output   ¦  Outputs: AdvisorRebalanceIntent
 +--------------------------------------+
             ¦
-            ?
+            ¦
 +--------------------------------------+
 ¦ 3. Deterministic Rebalance Engine    ¦  NO AI Math / Zero Hallucination
 ¦    (Pure C# Domain Layer)            ¦  • Drift: 75% stocks ? 60% target model
@@ -45,12 +45,12 @@ This demo proves that conversational AI can handle natural language instructions
 ¦                                      ¦  • Reallocates excess into bonds (BND)
 +--------------------------------------+
             ¦
-            ?
+            ¦
 +--------------------------------------+
 ¦ 4. Client Communication Synthesis    ¦  LLM drafts compliance review email for client
 +--------------------------------------+
             ¦
-            ?
+            ¦
 [ Interactive Demo Dashboard: Review & Execute ]
 ```
 
