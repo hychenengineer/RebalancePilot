@@ -16,7 +16,7 @@ This demo proves that conversational AI can handle natural language instructions
 1. **Conversational Semantic Translation:** An LLM interprets messy advisor language (e.g. percentages, colloquial terms, sector exclusions).
 2. **Deterministic Financial Math:** Pure C# code performs the drift calculations, tax lot optimization, and trade order generation.
 
-> ?? **Note:** This project is an illustrative demo and architectural reference prototype, not a production-grade commercial platform or registered investment advice service.
+> **Note:** This project is an illustrative demo and architectural reference prototype, not a production-grade commercial platform or registered investment advice service.
 
 ---
 
